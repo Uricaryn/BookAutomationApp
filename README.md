@@ -40,6 +40,7 @@ Run the application:
 
 dotnet run
 Access the application: Open a browser and go to http://localhost:7185.
+
 Configuration
 The application settings are managed through the appsettings.json and appsettings.Development.json files. You can customize these files to suit your environment, particularly the database connection strings and identity settings.
 
