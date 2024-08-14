@@ -1,0 +1,70 @@
+﻿@model IEnumerable<_80_MVC_IdentityCustomize.Models.VMs.BookListVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Books</h1>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form asp-action="Index" method="get">
+            <div class="input-group">
+                <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Search for books..." />
+                <button type="submit" class="btn btn-primary ms-2">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 text-end">
+        <form asp-action="Index" method="get">
+            <div class="input-group">
+                @Html.DropDownList("statusFilter", new SelectList((IEnumerable<SelectListItem>)ViewData["Statuses"], "Value", "Text", ViewData["CurrentStatus"]), "All", new { @class = "form-select" })
+                <button type="submit" class="btn btn-primary ms-2">Filter by Status</button>
+            </div>
+        </form>
+        <div class="mt-2">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>@Html.ActionLink("Title", "Index", new { sortOrder = ViewData["TitleSortParam"] })</th>
+            <th>@Html.DisplayNameFor(model => model.Author)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>@Html.DisplayNameFor(model => model.CreatedDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int say = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(++say)</td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Author)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

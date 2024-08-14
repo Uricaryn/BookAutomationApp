@@ -1,0 +1,32 @@
+/* Example of custom styles */
+.navbar {
+    background-color: #343a40; /* Darker navbar background */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Larger brand text */
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.table {
+    margin-top: 20px;
+    border: 1px solid #dee2e6; /* Light border */
+}
+
+    .table th {
+        background-color: #f8f9fa;
+    }
+
+    .table td, .table th {
+        padding: 15px;
+    }
+
+footer {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
