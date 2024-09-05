@@ -78,5 +78,6 @@ If you wish to contribute to this project, please follow the standard GitHub for
 
 ## Contact
 For any inquiries or feedback, feel free to reach out to the project maintainers at [onuranatca@hotmail.com.tr](mailto:onuranatca@hotmail.com.tr).
+
 This project is licensed under the MIT License. For more details, please see the LICENSE.txt file.
 
